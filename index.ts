@@ -3,6 +3,8 @@ const readline = require("readline");
 let text_info: string;
 let message: string;
 
+console.log('\n--- Starte Git Workflow ---');
+
 const rl: any = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -23,3 +25,21 @@ function input(text_info: string) {
     return message;
   });
 }
+
+
+// }
+// rl.question('Gib deine Commit-Nachricht ein: ', (message) => {
+
+//   console.log('\n--- Starte Git Workflow ---');
+
+//   run('git init');
+//   run('git add .');
+
+//   // Hier nutzen wir die Benutzereingabe für den Commit
+//   run(`git commit -m "${message}"`);
+
+//   console.log('\nFertig! Der Commit wurde erstellt.');
+
+//   rl.close();
+// });
+
