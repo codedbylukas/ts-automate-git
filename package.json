@@ -1,0 +1,11 @@
+{
+  "name": "typescript_automatisiere_git",
+  "version": "1.0.0",
+  "description": "this is a project to automate git with Typescript.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lukas-JavaScript",
+  "license": "MIT"
+}
