@@ -9,7 +9,6 @@ const rl:any = readline.createInterface({
 function run(command:string) {
   try {
     console.log(`Run command: ${command}`);
-    // stdio: 'inherit' sorgt dafür, dass du den Output (z.B. Git-Status) direkt siehst
     execSync(command, { stdio: 'inherit' });
   } catch (error) {
     console.error(`Error: ${command}`);
