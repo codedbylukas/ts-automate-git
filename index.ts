@@ -1,7 +1,8 @@
 import { execSync } from "child_process";
 import readline from "readline";
 
-let push:boolean;
+let push:string;
+let init:string;
 
 export {}; 
 
@@ -30,12 +31,12 @@ function input(text_info: string): Promise<string> {
   });
 }
 
-let choice: string = await input("Do you want to init it? (y/n) ");
+init = await input("Do you want to init it? (y/n) ");
 
-if (choice.toLowerCase() === "y") {
+if (init.toLowerCase() === "y") {
     run('git init');
 }
-if (choice.toLowerCase() === "n") {
+if (init.toLowerCase() === "n") {
   console.log("Okay, I dont init it.");
 }
 else {
@@ -43,4 +44,14 @@ else {
   process.exit();
 }
 
-rl.close();
+push = await input("Do you want to push it after every modifire? (y/n) ");
+
+// if (push.toLowerCase() === "y") {
+//     run('git push');
+// }
+// if (push !== "y" && push !== "n") {
+//   console.log("Invalid Choice");
+//   process.exit();
+// }
+
+// rl.close();
