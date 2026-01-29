@@ -1,6 +1,7 @@
 {
   "name": "typescript_automate_git",
   "version": "1.0.0",
+  "type": "module",
   "description": "this is a project to automate git with Typescript.",
   "main": "index.ts",
   "scripts": {

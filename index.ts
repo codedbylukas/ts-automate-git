@@ -1,5 +1,7 @@
-const { execSync } = require("child_process");
-const readline = require("readline");
+import { execSync } from "child_process";
+import readline from "readline";
+
+export {}; 
 
 console.log('\n--- Starte Git Workflow ---');
 
@@ -18,13 +20,18 @@ function run(command:string) {
   }
 }
 
-function input(text_info:string) {
-  rl.question(text_info, (message:string) => {
-    return message;
+function input(text_info: string): Promise<string> {
+  return new Promise((resolve) => {
+    rl.question(text_info, (message: string) => {
+      resolve(message);
+    });
   });
 }
 
-//   run('git init');
-//   run('git add .');
-//   run(`git commit -m "${message}"`);
-//   console.log('\nFertig! Der Commit wurde erstellt.');
+let choice: string = await input("Do you want to init it? (y/n) ");
+
+if (choice.toLowerCase() === "y") {
+    run('git init');
+}
+
+rl.close();
