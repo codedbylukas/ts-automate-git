@@ -1,6 +1,8 @@
 import { execSync } from "child_process";
 import readline from "readline";
 
+let push:boolean;
+
 export {}; 
 
 console.log('\n--- Starte Git Workflow ---');
@@ -32,6 +34,13 @@ let choice: string = await input("Do you want to init it? (y/n) ");
 
 if (choice.toLowerCase() === "y") {
     run('git init');
+}
+if (choice.toLowerCase() === "n") {
+  console.log("Okay, I dont init it.");
+}
+else {
+  console.log("Invalid Choice");
+  process.exit();
 }
 
 rl.close();
