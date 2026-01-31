@@ -11,7 +11,8 @@ console.log('\n--- Starte Git Workflow ---');
 await gitInit();
 
 pushing = await gitPushConfig();
-console.log("Write your changes or q to to exit.")
+console.log("Write your changes or q to to exit. ")
+console.log("Write b to switch to the brach mode. ")
 while (true) {
   message = await input("Enter your commit message or q to to exit: ");
   if (message.toLowerCase() === "q") {
