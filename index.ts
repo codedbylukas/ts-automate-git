@@ -9,27 +9,23 @@ let message:string;
 console.log('\n--- Starte Git Workflow ---');
 
 init = await input("Do you want to init it? (y/n) ");
-
-if (init.toLowerCase() === "y") {
+console.log(init);
+if (init.trim().toLowerCase() === "y") {
     run('git init');
-}
-if (init.toLowerCase() === "n") {
-  console.log("Okay, I dont init it.");
-}
-else {
+} else if (init.trim().toLowerCase() === "n") {
+  console.log("Okay, I don't init it.");
+} else {
   console.log("Invalid Choice");
   process.exit();
 }
 
 push = await input("Do you want to push it after every modifire? (y/n) ");
-
-if (push.toLowerCase() === "y") {
+console.log(push);
+if (push.trim().toLowerCase() === "y") {
     pushing = true;
-}
-if (push.toLowerCase() === "n") {
+} else if (push.trim().toLowerCase() === "n") {
     pushing = false;
-}
-else {
+} else {
   console.log("Invalid Choice");
   process.exit();
 }
