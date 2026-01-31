@@ -13,7 +13,7 @@ function showBegining() {
 
 export async function gitBranch() {
   showBegining();
-  choice = await input("Enter your choice: ");
+  choice = await input("Enter your choice (1/2) (default: 2): ");
   if (choice.trim() === "1") { 
     branchName = await input("Enter your branch name: ");
     if (branchName.trim() === "") {
