@@ -1,23 +1,15 @@
 import { run } from "./run.js";
 import { input, closeInput } from "./input.js";
+import { gitInit } from "./gitInit.js";
 
 let push:string;
-let init:string;
+
 let pushing:boolean;
 let message:string;
 
 console.log('\n--- Starte Git Workflow ---');
 
-init = await input("Do you want to init it? (y/n) ");
-console.log(init);
-if (init.trim().toLowerCase() === "y") {
-    run('git init');
-} else if (init.trim().toLowerCase() === "n") {
-  console.log("Okay, I don't init it.");
-} else {
-  console.log("Invalid Choice");
-  process.exit();
-}
+await gitInit();
 
 push = await input("Do you want to push it after every modifire? (y/n) ");
 console.log(push);
