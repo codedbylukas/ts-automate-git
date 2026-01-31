@@ -21,6 +21,7 @@ while (true) {
   run(`git add .`);
   run(`git commit -m "${message}"`);
   if (pushing) {
+    run("git pull");
     run('git push');
   }
 }
