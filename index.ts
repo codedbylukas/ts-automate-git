@@ -5,6 +5,7 @@ import { gitPushConfig } from "./gitPush.js";
 
 let pushing:boolean;
 let message:string;
+let branchName:string;
 
 console.log('\n--- Starte Git Workflow ---');
 
@@ -18,8 +19,19 @@ while (true) {
   if (message.toLowerCase() === "q") {
     break;
   }
-  if (message.toLocaleLowerCase() === "b"){
-    // branch logic
+  if (message.toLowerCase() === "b"){
+    branchName = await input("Enter your branch name: ");
+    if (branchName.trim() === "") {
+      console.log("Branch name cannot be empty");
+      continue;
+    }
+    try {
+      run("git switch -c " + branchName);
+      run("git branch");
+    } catch (error) {
+      console.log("Error: " + error);
+      continue;
+    }
   }
   else {
     run(`git add .`);
