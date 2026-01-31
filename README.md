@@ -64,7 +64,7 @@ The project uses **Jest** for unit tests. ✅
 ## 📂 Project Structure
 
 *   `index.ts`: The main entry point. 🚦
-*   `gitInit.ts`: Logic for `git init`. 🏁
+*   `gitInit.ts`: Logic for ask `git init`. 🏁
 *   `gitPush.ts`: Configuration for auto-push. ⚙️
 *   `run.ts`: Helper to execute shell commands. 💻
 *   `input.ts`: Helper for user input. ⌨️
