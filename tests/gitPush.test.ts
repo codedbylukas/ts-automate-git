@@ -32,7 +32,7 @@ describe('gitPushConfig', () => {
         
         const result = await gitPushConfig();
 
-        expect(inputMock).toHaveBeenCalledWith("Do you want to push it after every modifire? (y/n) ");
+        expect(inputMock).toHaveBeenCalledWith("Do you want to push it after every modifire? (y/n) (default: y) ");
         expect(result).toBe(true);
     });
 
@@ -42,8 +42,19 @@ describe('gitPushConfig', () => {
         
         const result = await gitPushConfig();
 
-        expect(inputMock).toHaveBeenCalledWith("Do you want to push it after every modifire? (y/n) ");
+        expect(inputMock).toHaveBeenCalledWith("Do you want to push it after every modifire? (y/n) (default: y) ");
         expect(result).toBe(false);
+    });
+
+    it('should return true when user inputs empty string (default)', async () => {
+        inputMock.mockResolvedValue('');
+        const { gitPushConfig } = await import('../gitPush');
+        
+        const result = await gitPushConfig();
+
+        expect(inputMock).toHaveBeenCalledWith("Do you want to push it after every modifire? (y/n) (default: y) ");
+        expect(result).toBe(true);
+
     });
 
     it('should exit process on invalid input', async () => {
