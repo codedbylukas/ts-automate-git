@@ -1,8 +1,10 @@
 import { run } from "./run.js";
-import { input } from "./input.js";
+import { input, closeInput } from "./input.js";
 
 let push:string;
 let init:string;
+let pushing:boolean;
+let message:string;
 
 console.log('\n--- Starte Git Workflow ---');
 
@@ -21,12 +23,15 @@ else {
 
 push = await input("Do you want to push it after every modifire? (y/n) ");
 
-// if (push.toLowerCase() === "y") {
-//     run('git push');
-// }
-// if (push !== "y" && push !== "n") {
-//   console.log("Invalid Choice");
-//   process.exit();
-// }
+if (push.toLowerCase() === "y") {
+    pushing = true;
+}
+if (push.toLowerCase() === "n") {
+    pushing = false;
+}
+else {
+  console.log("Invalid Choice");
+  process.exit();
+}
 
-// rl.close();
+closeInput();
