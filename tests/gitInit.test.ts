@@ -38,7 +38,7 @@ describe('gitInit', () => {
         
         await gitInit();
 
-        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) ");
+        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) (default: y) ");
         expect(runMock).toHaveBeenCalledWith('git init');
     });
 
@@ -48,7 +48,7 @@ describe('gitInit', () => {
         
         await gitInit();
 
-        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) ");
+        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) (default: y) ");
         expect(runMock).not.toHaveBeenCalled();
         expect(consoleSpy).toHaveBeenCalledWith("Okay, I don't init it.");
     });
