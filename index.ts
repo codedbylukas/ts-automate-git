@@ -18,11 +18,16 @@ while (true) {
   if (message.toLowerCase() === "q") {
     break;
   }
-  run(`git add .`);
-  run(`git commit -m "${message}"`);
-  if (pushing) {
-    run("git pull");
-    run('git push');
+  if (message.toLocaleLowerCase() === "b"){
+    // branch logic
+  }
+  else {
+    run(`git add .`);
+    run(`git commit -m "${message}"`);
+    if (pushing) {
+      run("git pull");
+      run('git push');
+    }
   }
 }
 console.log("\n--- Git Workflow beendet ---");
