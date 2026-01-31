@@ -4,12 +4,14 @@ Welcome to the **TypeScript Git Automator**! This project helps you to automate 
 
 ## 🌟 Features
 
-*   **📂 Automatic Initialization**: Asks you if you want to initialize a new Git repo (`git init`).
-*   **⬆️ Auto-Push Configuration**: Decide if you want to push automatically after every commit (`git push`).
+*   **📂 Automatic Initialization**: Asks you if you want to initialize a new Git repo (`git init`). Defaults to 'n' (skip).
+*   **⬆️ Auto-Push Configuration**: Decide if you want to push automatically after every commit (`git push`). Defaults to 'y' (auto-push).
+*   **🌿 Branch Mode**: Switch between branches or create new ones on the fly with the `b` command.
 *   **🔄 Infinite Commit Loop**: Just enter your commit message, and the tool handles the rest:
     *   `git add .` ✅
-    *   `git commit -m "Your message"` 📝
-    *   `git push` (optional) 🚀
+    *   `git commit -m \"Your message\"` 📝
+    *   `git pull` (for safety) 🔄
+    *   `git push` (if enabled) 🚀
 *   **🛠️ Robust & Tested**: Written correctly in TypeScript and tested with Jest! 🧪
 
 ## 📦 Installation
@@ -38,17 +40,17 @@ npx tsx index.ts
 ### 📝 Workflow
 
 1.  **Init?** 🤔
-    *   Answer `Do you want to init it? (y/n)` with `y` to run `git init`.
-    *   Answer `n` to skip.
+    *   Answer `Do you want to init it? (y/n) (default: n)` with `y` to run `git init`.
+    *   Press `Enter` or answer `n` to skip (default behavior).
 
 2.  **Auto-Push?** ☁️
     *   `Do you want to push it after every modifire? (y/n) (default: y)`
-    *   `y` = Automatic push after every commit.
+    *   Press `Enter` or answer `y` = Automatic push after every commit (default behavior).
     *   `n` = Commit locally only.
 
 3.  **Let's go!** 🏎️
-    *   Enter your commit message.
-    *   Press `Enter`.
+    *   Enter your commit message and press `Enter`.
+    *   Type `b` to enter **Branch Mode** and switch/create branches. 🌿
     *   To exit, simply type `q`. 👋
 
 ## 🧪 Tests
@@ -64,8 +66,9 @@ The project uses **Jest** for unit tests. ✅
 ## 📂 Project Structure
 
 *   `index.ts`: The main entry point. 🚦
-*   `gitInit.ts`: Logic for ask `git init`. 🏁
+*   `gitInit.ts`: Logic for `git init` prompt. 🏁
 *   `gitPush.ts`: Configuration for auto-push. ⚙️
+*   `gitBranch.ts`: Branch switching and creation logic. 🌿
 *   `run.ts`: Helper to execute shell commands. 💻
 *   `input.ts`: Helper for user input. ⌨️
 *   `tests/`: Where the tests live. 🏠
