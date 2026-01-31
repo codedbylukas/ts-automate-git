@@ -33,5 +33,17 @@ else {
   console.log("Invalid Choice");
   process.exit();
 }
-
+console.log("Write your changes or q to to exit.")
+while (true) {
+  message = await input("Enter your commit message or q to to exit: ");
+  if (message.toLowerCase() === "q") {
+    break;
+  }
+  run(`git add .`);
+  run(`git commit -m "${message}"`);
+  if (pushing) {
+    run('git push');
+  }
+}
+console.log("\n--- Git Workflow beendet ---");
 closeInput();
