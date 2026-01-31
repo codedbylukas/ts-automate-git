@@ -38,7 +38,7 @@ describe('gitInit', () => {
         
         await gitInit();
 
-        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) (default: n ) ");
+        expect(inputMock).toHaveBeenCalledWith("Do you want to init it? (y/n) (default: n) ");
         expect(runMock).toHaveBeenCalledWith('git init');
     });
 
