@@ -26,5 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # --- NEUER SCHRITT ---
+      - name: Run Tests
+        run: npm test
+      # ---------------------
+
       - name: Build (if present)
         run: npm run build --if-present
