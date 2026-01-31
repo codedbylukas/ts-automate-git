@@ -75,7 +75,7 @@ The project uses **Jest** for unit tests. ✅
 Want to contribute? Awesome! 🎉
 
 1.  Fork the repo. 🍴
-2.  Create a branch (`git checkout -b feature/CoolFeature`). 🌿
+2.  Create a branch (`git switch -c feature/CoolFeature`). 🌿
 3.  Commit your changes (`git commit -m 'Add CoolFeature'`). 💎
 4.  Push the branch (`git push origin feature/CoolFeature`). 📤
 5.  Open a Pull Request. 📬
