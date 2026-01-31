@@ -23,6 +23,7 @@ export async function gitBranch() {
     try {
       run("git switch " + branchName);
       run("git branch");
+      process.exit();
     } catch (error) {
       console.log("Error: " + error);
       return;
@@ -36,6 +37,7 @@ export async function gitBranch() {
     try {
       run("git switch -c " + branchName);
       run("git branch");
+      process.exit();
     } catch (error) {
       console.log("Error: " + error);
       return;
