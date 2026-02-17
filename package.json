@@ -5,7 +5,8 @@
   "description": "this is a project to automate git with Typescript.",
   "main": "index.ts",
   "scripts": {
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "build": "tsc"
   },
   "author": "Lukas-JavaScript",
   "license": "MIT",

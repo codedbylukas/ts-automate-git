@@ -3,6 +3,7 @@
         "target": "ES2022",
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
+        "outDir": "./build",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
@@ -10,6 +11,11 @@
         "isolatedModules": true
     },
     "include": [
-        "*.ts"
-, "components/gitPush.ts", "components/input.ts", "components/run.ts"    ]
+        "index.ts",
+        "components/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "tests"
+    ]
 }
