@@ -1,7 +1,8 @@
 import { jest, describe, it, expect, beforeEach, afterEach } from '@jest/globals';
 
 // Mock dependencies
-jest.unstable_mockModule('../input', () => ({
+// Mock dependencies
+jest.unstable_mockModule('../components/input', () => ({
   input: jest.fn(),
 }));
 
@@ -15,7 +16,7 @@ describe('gitPushConfig', () => {
     let consoleSpy: any;
 
     beforeEach(async () => {
-        const inputModule = await import('../input');
+        const inputModule = await import('../components/input');
         inputMock = inputModule.input;
         
         consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -28,7 +29,7 @@ describe('gitPushConfig', () => {
 
     it('should return true when user inputs "y"', async () => {
         inputMock.mockResolvedValue('y');
-        const { gitPushConfig } = await import('../gitPush');
+        const { gitPushConfig } = await import('../components/gitPush');
         
         const result = await gitPushConfig();
 
@@ -38,7 +39,7 @@ describe('gitPushConfig', () => {
 
     it('should return false when user inputs "n"', async () => {
         inputMock.mockResolvedValue('n');
-        const { gitPushConfig } = await import('../gitPush');
+        const { gitPushConfig } = await import('../components/gitPush');
         
         const result = await gitPushConfig();
 
@@ -48,7 +49,7 @@ describe('gitPushConfig', () => {
 
     it('should return true when user inputs empty string (default)', async () => {
         inputMock.mockResolvedValue('');
-        const { gitPushConfig } = await import('../gitPush');
+        const { gitPushConfig } = await import('../components/gitPush');
         
         const result = await gitPushConfig();
 
@@ -59,7 +60,7 @@ describe('gitPushConfig', () => {
 
     it('should exit process on invalid input', async () => {
         inputMock.mockResolvedValue('invalid');
-        const { gitPushConfig } = await import('../gitPush');
+        const { gitPushConfig } = await import('../components/gitPush');
 
         await expect(gitPushConfig()).rejects.toThrow('process.exit called');
         

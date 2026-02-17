@@ -1,10 +1,11 @@
 import { jest, describe, it, expect, beforeEach, afterEach } from '@jest/globals';
 
 // Mock dependencies
-jest.unstable_mockModule('../input', () => ({
+// Mock dependencies
+jest.unstable_mockModule('../components/input', () => ({
   input: jest.fn(),
 }));
-jest.unstable_mockModule('../run', () => ({
+jest.unstable_mockModule('../components/run', () => ({
   run: jest.fn(),
 }));
 
@@ -19,9 +20,9 @@ describe('gitInit', () => {
     let consoleSpy: any;
 
     beforeEach(async () => {
-        const inputModule = await import('../input');
+        const inputModule = await import('../components/input');
         inputMock = inputModule.input;
-        const runModule = await import('../run');
+        const runModule = await import('../components/run');
         runMock = runModule.run;
         
         consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -34,7 +35,7 @@ describe('gitInit', () => {
 
     it('should run git init when user inputs "y"', async () => {
         inputMock.mockResolvedValue('y');
-        const { gitInit } = await import('../gitInit');
+        const { gitInit } = await import('../components/gitInit');
         
         await gitInit();
 
@@ -44,7 +45,7 @@ describe('gitInit', () => {
 
     it('should not run git init when user inputs "n"', async () => {
         inputMock.mockResolvedValue('n');
-        const { gitInit } = await import('../gitInit');
+        const { gitInit } = await import('../components/gitInit');
         
         await gitInit();
 
@@ -55,7 +56,7 @@ describe('gitInit', () => {
 
     it('should exit process on invalid input', async () => {
         inputMock.mockResolvedValue('invalid');
-        const { gitInit } = await import('../gitInit');
+        const { gitInit } = await import('../components/gitInit');
 
         await expect(gitInit()).rejects.toThrow('process.exit called');
         

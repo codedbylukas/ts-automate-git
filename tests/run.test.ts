@@ -8,7 +8,7 @@ jest.unstable_mockModule('child_process', () => ({
 describe('run function', () => {
   it('should execute the command', async () => {
     const { execSync } = await import('child_process');
-    const { run } = await import('../run');
+    const { run } = await import('../components/run');
 
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
     
