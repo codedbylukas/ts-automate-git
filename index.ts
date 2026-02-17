@@ -1,8 +1,8 @@
-import { run } from "./run.js";
-import { input, closeInput } from "./input.js";
-import { gitInit } from "./gitInit.js";
-import { gitPushConfig } from "./gitPush.js";
-import { gitBranch } from "./gitBranch.js";
+import { run } from "./components/run.js";
+import { input, closeInput } from "./components/input.js";
+import { gitInit } from "./components/gitInit.js";
+import { gitPushConfig } from "./components/gitPush.js";
+import { gitBranch } from "./components/gitBranch.js";
 
 let pushing:boolean;
 let message:string;
