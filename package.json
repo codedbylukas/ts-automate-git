@@ -8,7 +8,7 @@
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "build": "tsc"
   },
-  "author": "Lukas-JavaScript",
+  "author": "codedbylukas",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^30.0.0",
