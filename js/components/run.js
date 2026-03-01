@@ -4,8 +4,9 @@ export function run(command) {
         console.log(`Run command: ${command}`);
         execSync(command, { stdio: "inherit" });
     }
-    catch (error) {
+    catch (e) {
         console.error(`Error: ${command}`);
+        console.error(`Error details: ${e}`);
         process.exit(1);
     }
 }

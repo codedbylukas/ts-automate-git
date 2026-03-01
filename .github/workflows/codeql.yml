@@ -17,9 +17,9 @@ permissions:
   
 on:
   push:
-    branches: [ "main", "branch_mode"]
+    branches: [ "main", "branch_mode", "better"]
   pull_request:
-    branches: [ "main", "branch_mode"]
+    branches: [ "main", "branch_mode", "better"]
   schedule:
     - cron: '28 7 * * 1'
 
