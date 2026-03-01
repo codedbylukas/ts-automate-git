@@ -21,7 +21,7 @@ async function switchBranch() {
       run("git branch");
       process.exit();
     } catch (e) {
-      console.log("Error: " + e);
+      console.error("Error: " + e);
       return;
     }
 }
