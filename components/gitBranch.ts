@@ -10,7 +10,7 @@ function showBegining() {
   console.log("1. Switch to a branch");
   console.log("2. Create a new branch");
 }
-async function one() {
+async function switchBranch() {
       branchName = await input("Enter your branch name: ");
     if (branchName.trim() === "") {
       console.log("Branch name cannot be empty");
@@ -24,15 +24,10 @@ async function one() {
       console.log("Error: " + error);
       return;
     }
-
 }
 
-export async function gitBranch() {
-  showBegining();
-  choice = await input("Enter your choice (1/2) (default: 2): ");
-  if (choice.trim() === "1") { 
-    one();
-}else if (choice.trim() === "2") {
+async function createBranch() {
+
     branchName = await input("Enter your branch name: ");
     if (branchName.trim() === "") {
       console.log("Branch name cannot be empty");
@@ -46,5 +41,13 @@ export async function gitBranch() {
       console.log("Error: " + error);
       return;
     }  
+}
+export async function gitBranch() {
+  showBegining();
+  choice = await input("Enter your choice (1/2) (default: 2): ");
+  if (choice.trim() === "1") { 
+    switchBranch();
+}else if (choice.trim() === "2") {
+    createBranch();
   }
 }
