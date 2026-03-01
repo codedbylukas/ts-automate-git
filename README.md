@@ -65,13 +65,19 @@ The project uses **Jest** for unit tests.
 
 ## Build
 
-When you want to build the project to js please use my own build script. Make sure that the build folder already exists. (This does only work on Linux)
+When you want to build the project to js please use my own build script. Make sure that the build folder already exists. 
+
+#### Linux:
 
 ```bash
 ./build.sh
 ```
 
-If you use Windows you can look in my script and make it manualy(if you want). 
+#### Windows:
+
+```bash
+./build.bat
+```
 
 ## Project Structure
 
