@@ -20,7 +20,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these s
 
 1.  **Clone the repository** (or download):
     ```bash
-    git clone https://github.com/YourUsername/typescript_automate_git.git
+    git clone https://github.com/codedbylukas/typescript_automate_git.git
     cd typescript_automate_git
     ```
 
