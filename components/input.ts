@@ -7,11 +7,11 @@ const rl = readline.createInterface({
 
 export function input(text_info: string): Promise<string> {
   try {
-  return new Promise((resolve) => {
-    rl.question(text_info, (message: string) => {
-      resolve(message);
+    return new Promise((resolve) => {
+      rl.question(text_info, (message: string) => {
+        resolve(message);
+      });
     });
-  });
   }
   catch (e) {
     console.error("Error: " + e);
@@ -20,5 +20,5 @@ export function input(text_info: string): Promise<string> {
 }
 
 export function closeInput() {
-    rl.close();
+  rl.close();
 }

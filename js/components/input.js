@@ -4,11 +4,17 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 export function input(text_info) {
-    return new Promise((resolve) => {
-        rl.question(text_info, (message) => {
-            resolve(message);
+    try {
+        return new Promise((resolve) => {
+            rl.question(text_info, (message) => {
+                resolve(message);
+            });
         });
-    });
+    }
+    catch (e) {
+        console.error("Error: " + e);
+        return Promise.reject(e);
+    }
 }
 export function closeInput() {
     rl.close();

@@ -20,7 +20,7 @@ async function switchBranch() {
         process.exit();
     }
     catch (e) {
-        console.log("Error: " + e);
+        console.error("Error: " + e);
         return;
     }
 }
@@ -41,12 +41,18 @@ async function createBranch() {
     }
 }
 export async function gitBranch() {
-    showBegining();
-    choice = await input("Enter your choice (1/2) (default: 2): ");
-    if (choice.trim() === "1") {
-        switchBranch();
+    try {
+        showBegining();
+        choice = await input("Enter your choice (1/2) (default: 2): ");
+        if (choice.trim() === "1") {
+            switchBranch();
+        }
+        else if (choice.trim() === "2") {
+            createBranch();
+        }
     }
-    else if (choice.trim() === "2") {
-        createBranch();
+    catch (e) {
+        console.error("Error: " + e);
+        return Promise.reject(e);
     }
 }

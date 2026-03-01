@@ -1,8 +1,8 @@
 import { input } from "./input.js";
 import { run } from "./run.js";
 
-let branchName:string;
-let choice:string;
+let branchName: string;
+let choice: string;
 
 function showBegining() {
   console.log("\n--- Git Branch ---");
@@ -11,48 +11,48 @@ function showBegining() {
   console.log("2. Create a new branch");
 }
 async function switchBranch() {
-      branchName = await input("Enter your branch name: ");
-    if (branchName.trim() === "") {
-      console.log("Branch name cannot be empty");
-      return;
-    }
-    try {
-      run("git switch " + branchName);
-      run("git branch");
-      process.exit();
-    } catch (e) {
-      console.error("Error: " + e);
-      return;
-    }
+  branchName = await input("Enter your branch name: ");
+  if (branchName.trim() === "") {
+    console.log("Branch name cannot be empty");
+    return;
+  }
+  try {
+    run("git switch " + branchName);
+    run("git branch");
+    process.exit();
+  } catch (e) {
+    console.error("Error: " + e);
+    return;
+  }
 }
 
 async function createBranch() {
 
-    branchName = await input("Enter your branch name: ");
-    if (branchName.trim() === "") {
-      console.log("Branch name cannot be empty");
-      return;
-    }
-    try {
-      run("git switch -c " + branchName);
-      run("git branch");
-      process.exit();
-    } catch (error) {
-      console.log("Error: " + error);
-      return;
-    }  
+  branchName = await input("Enter your branch name: ");
+  if (branchName.trim() === "") {
+    console.log("Branch name cannot be empty");
+    return;
+  }
+  try {
+    run("git switch -c " + branchName);
+    run("git branch");
+    process.exit();
+  } catch (error) {
+    console.log("Error: " + error);
+    return;
+  }
 }
 export async function gitBranch() {
   try {
-  showBegining();
-  choice = await input("Enter your choice (1/2) (default: 2): ");
-  if (choice.trim() === "1") { 
-    switchBranch();
-}else if (choice.trim() === "2") {
-    createBranch();
+    showBegining();
+    choice = await input("Enter your choice (1/2) (default: 2): ");
+    if (choice.trim() === "1") {
+      switchBranch();
+    } else if (choice.trim() === "2") {
+      createBranch();
+    }
   }
-  }
-  catch(e) {
+  catch (e) {
     console.error("Error: " + e);
     return Promise.reject(e);
   }
