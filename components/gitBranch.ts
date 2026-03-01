@@ -43,11 +43,17 @@ async function createBranch() {
     }  
 }
 export async function gitBranch() {
+  try {
   showBegining();
   choice = await input("Enter your choice (1/2) (default: 2): ");
   if (choice.trim() === "1") { 
     switchBranch();
 }else if (choice.trim() === "2") {
     createBranch();
+  }
+  }
+  catch(e) {
+    console.error("Error: " + e);
+    return Promise.reject(e);
   }
 }
