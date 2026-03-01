@@ -9,7 +9,7 @@ Welcome to the **TypeScript Git Automator**! This project helps you to automate 
 *   **Branch Mode**: Switch between branches or create new ones on the fly with the `b` command.
 *   **Infinite Commit Loop**: Just enter your commit message, and the tool handles the rest:
     *   `git add .`
-    *   `git commit -m \"Your message\"`
+    *   `git commit -m "Your message"`
     *   `git pull` (for safety)
     *   `git push` (if enabled)
 *   **Robust & Tested**: Written correctly in TypeScript and tested with Jest! 
