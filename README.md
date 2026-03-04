@@ -37,6 +37,11 @@ To start the automator, simply run the following command:
 npx tsx index.ts
 ```
 
+To compile run:
+```bash
+npm build 
+```
+
 ### Workflow
 
 1.  **Init?** 
