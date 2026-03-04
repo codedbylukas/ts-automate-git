@@ -26,7 +26,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these s
 
 2.  **Install dependencies**:
     ```bash
-    npm install
+    npm run install
     ```
 
 ## Usage
