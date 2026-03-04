@@ -20,6 +20,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "deno": "^2.7.1",
     "tsx": "^4.21.0"
   }
 }
