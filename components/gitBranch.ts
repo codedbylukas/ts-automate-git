@@ -26,7 +26,7 @@ async function switchBranch() {
   }
 }
 
-async function createBranch() {
+async function createBranch(pushing: boolean) {
 
   branchName = await input("Enter your branch name: ");
   if (branchName.trim() === "") {
@@ -35,6 +35,15 @@ async function createBranch() {
   }
   try {
     run("git switch -c " + branchName);
+    if (pushing) {
+      try {
+      run("git push -u origin " + branchName);
+      }
+      catch (e) {
+        console.error("Error pushing branch: " + e);
+        return;
+      }
+    }
     run("git branch");
     process.exit();
   } catch (error) {
@@ -42,14 +51,14 @@ async function createBranch() {
     return;
   }
 }
-export async function gitBranch() {
+export async function gitBranch(pushing: boolean) {
   try {
     showBegining();
     choice = await input("Enter your choice (1/2) (default: 2): ");
     if (choice.trim() === "1") {
       switchBranch();
     } else if (choice.trim() === "2") {
-      createBranch();
+      createBranch(pushing);
     }
   }
   catch (e) {
