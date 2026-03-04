@@ -20,7 +20,7 @@ while (true) {
     break;
   }
   if (message.toLowerCase() === "b"){
-    gitBranch();
+    gitBranch(pushing);
   }  
   else {
     run(`git add .`);

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=git-tool
+Exec=/usr/bin/git-tool
+Icon=icon.png
+Categories=Utility;
+Terminal=false
