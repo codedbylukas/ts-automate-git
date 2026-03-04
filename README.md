@@ -39,7 +39,7 @@ npx tsx index.ts
 
 To compile run:
 ```bash
-npm build 
+npm run build 
 ```
 
 ### Workflow
