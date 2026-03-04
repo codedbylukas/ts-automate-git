@@ -29,7 +29,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these s
     npm run install
     ```
 
-## Installation(only Linux):
+## Installation(only Linux, permanently):
     ```bash
     sudo apt install ./for_installation/Linux/Linux.deb
     ```
