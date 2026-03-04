@@ -14,14 +14,14 @@ Welcome to the **TypeScript Git Automator**! This project helps you to automate 
     *   `git push` (if enabled)
 *   **Robust & Tested**: Written correctly in TypeScript and tested with Jest! 
 
-## Installation
+## Installation(all platforms)
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these steps:
 
 1.  **Clone the repository** (or download):
     ```bash
     git clone https://github.com/codedbylukas/ts-automate-git.git
-    cd typescript_automate_git
+    cd ts-automate-git
     ```
 
 2.  **Install dependencies**:
@@ -29,6 +29,11 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these s
     npm run install
     ```
 
+## Installation(only Linux):
+    ```bash
+    sudo apt install ./for_installation/Linux/Linux.deb
+    ```
+    
 ## Usage
 
 To start the automator, simply run the following command:
