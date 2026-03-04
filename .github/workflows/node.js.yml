@@ -5,9 +5,9 @@ permissions:
 
 on:
   push:
-    branches: [ "main", "branch_mode", "better"]
+    branches: [ "main", "branch_mode", "better", "bin"]
   pull_request:
-    branches: [ "main", "branch_mode", "better"]
+    branches: [ "main", "branch_mode", "better", "bin"]
 
 jobs:
   build:
