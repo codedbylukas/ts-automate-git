@@ -1,1 +1,1 @@
-npm run build && xcopy .\build\* .\js\ /s /e /y /i && npm run test
+npm run build && npm run test
