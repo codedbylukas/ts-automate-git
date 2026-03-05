@@ -1,7 +1,7 @@
 Package: git-tool
-Version: 1.1
+Version: 1.2
 Section: utils
 Priority: optional
 Architecture: all
-Maintainer: Dein Name <deine@mail.de>
+Maintainer: codedbylukas
 Description: Thats a tool to automate git commands. It can be used to automate the process of committing and pushing changes to a git repository. It can also be used to automate the process of creating branches. The tool is written in TypeScript.
