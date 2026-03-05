@@ -1,2 +1,5 @@
 /auto/
 /node_modules/
+
+# Compiled binaries (too large for GitHub)
+for_installation/Windows/git-tool-64.exe
