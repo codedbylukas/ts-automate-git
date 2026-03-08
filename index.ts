@@ -7,12 +7,8 @@ import { gitBranch } from "./components/gitBranch.js";
 let pushing: boolean = await gitPushConfig();
 let message: string;
 
-console.log("\n--- Starte Git Workflow ---");
-
 await gitInit();
 
-console.log("Write your changes or q to to exit. ");
-console.log("Write b to switch to the brach mode. ");
 while (true) {
   try {
     message = await input("Enter your commit message or q to to exit: ");

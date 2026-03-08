@@ -73,7 +73,7 @@ async function createBranch(pushing: boolean) {
     run("git branch");
     process.exit();
   } catch (error) {
-    console.log("Error: " + error);
+    console.error("Error: " + error);
     return;
   }
 }
