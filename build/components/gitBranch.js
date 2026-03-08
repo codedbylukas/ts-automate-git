@@ -8,20 +8,47 @@ function showBegining() {
     console.log("1. Switch to a branch");
     console.log("2. Create a new branch");
 }
-async function switchBranch() {
-    branchName = await input("Enter your branch name: ");
-    if (branchName.trim() === "") {
-        console.log("Branch name cannot be empty");
-        return;
-    }
+async function is_avalible(branchName) {
     try {
-        run("git switch " + branchName);
-        run("git branch");
-        process.exit();
+        if (branchName.trim() === "") {
+            console.log("Branch name cannot be empty");
+            return false;
+        }
+        else if (branchName.trim() === "main" || branchName.trim() === "master") {
+            console.log("You cannot switch to main or master branch");
+            return false;
+        }
+        else if (branchName.trim().includes("&&") ||
+            branchName.trim().includes("|") ||
+            branchName.trim().includes(";")) {
+            console.log("Invalid branch name. Please avoid using special characters.");
+            return false;
+        }
+        else {
+            return true;
+        }
     }
     catch (e) {
-        console.error("Error: " + e);
-        return;
+        console.error("Error IN BRANCH FILE: " + e);
+        return false;
+    }
+}
+async function switchBranch() {
+    branchName = await input("Enter your branch name: ");
+    if (await is_avalible(branchName)) {
+        try {
+            run("git switch " + branchName);
+            run("git branch");
+            process.exit();
+        }
+        catch (e) {
+            console.error("Error IN SWITCH BRANCH FILE: " + e);
+            return;
+        }
+    }
+    else {
+        console.log("Please try again.");
+        process.exit(1);
     }
 }
 async function createBranch(pushing) {
@@ -45,7 +72,7 @@ async function createBranch(pushing) {
         process.exit();
     }
     catch (error) {
-        console.log("Error: " + error);
+        console.error("Error: " + error);
         return;
     }
 }
@@ -61,7 +88,7 @@ export async function gitBranch(pushing) {
         }
     }
     catch (e) {
-        console.error("Error: " + e);
+        console.error("Error IN GIT BRANCH FILE: " + e);
         return Promise.reject(e);
     }
 }

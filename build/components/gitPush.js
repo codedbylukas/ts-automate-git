@@ -15,7 +15,7 @@ export async function gitPushConfig() {
         }
     }
     catch (e) {
-        console.error("Error: " + e);
+        console.error("Error: IN GIT PUSH FILE: " + e);
         return Promise.reject(e);
     }
 }

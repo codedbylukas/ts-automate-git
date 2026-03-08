@@ -2,7 +2,9 @@ import { input } from "./input.js";
 
 export async function gitPushConfig(): Promise<boolean> {
   try {
-    const push = await input("Do you want to push it after every modifire? (y/n) (default: y) ");
+    const push = await input(
+      "Do you want to push it after every modifire? (y/n) (default: y) ",
+    );
     console.log(push);
     if (push.trim().toLowerCase() === "y" || push.trim().toLowerCase() === "") {
       return true;
@@ -12,9 +14,8 @@ export async function gitPushConfig(): Promise<boolean> {
       console.log("Invalid Choice");
       process.exit();
     }
-  }
-  catch (e) {
-    console.error("Error: " + e);
+  } catch (e) {
+    console.error("Error: IN GIT PUSH FILE: " + e);
     return Promise.reject(e);
   }
 }

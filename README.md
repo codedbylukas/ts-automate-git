@@ -109,3 +109,4 @@ Want to contribute? Awesome!
 4.  Push the branch (`git push origin feature/CoolFeature`). 
 5.  Open a Pull Request. 
 
+Please do not make a file greater then 500 lines of code. Thanks.

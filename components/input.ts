@@ -12,9 +12,8 @@ export function input(text_info: string): Promise<string> {
         resolve(message);
       });
     });
-  }
-  catch (e) {
-    console.error("Error: " + e);
+  } catch (e) {
+    console.error("Error IN INPUT FILE: " + e);
     return Promise.reject(e);
   }
 }
