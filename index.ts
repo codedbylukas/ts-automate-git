@@ -4,10 +4,10 @@ import { gitInit } from "./components/gitInit.js";
 import { gitPushConfig } from "./components/gitPush.js";
 import { gitBranch } from "./components/gitBranch.js";
 
+await gitInit();
+
 let pushing: boolean = await gitPushConfig();
 let message: string;
-
-await gitInit();
 
 while (true) {
   try {
