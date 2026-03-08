@@ -14,24 +14,25 @@ function showBegining() {
 }
 async function is_avalible(branchName: string): Promise<boolean> {
   try {
-  if (branchName.trim() === "") {
-    console.log("Branch name cannot be empty");
-    return false;
-  } else if (branchName.trim() === "main" || branchName.trim() === "master") {
-    console.log("You cannot switch to main or master branch");
-    return false;
-  } else if (
-    branchName.trim().includes("&&") ||
-    branchName.trim().includes("|") ||
-    branchName.trim().includes(";")
-  ) {
-    console.log("Invalid branch name. Please avoid using special characters.");
-    return false;
-  } else {
-    return true;
-  }
-  }
-  catch (e) {
+    if (branchName.trim() === "") {
+      console.log("Branch name cannot be empty");
+      return false;
+    } else if (branchName.trim() === "main" || branchName.trim() === "master") {
+      console.log("You cannot switch to main or master branch");
+      return false;
+    } else if (
+      branchName.trim().includes("&&") ||
+      branchName.trim().includes("|") ||
+      branchName.trim().includes(";")
+    ) {
+      console.log(
+        "Invalid branch name. Please avoid using special characters.",
+      );
+      return false;
+    } else {
+      return true;
+    }
+  } catch (e) {
     console.error("Error IN BRANCH FILE: " + e);
     return false;
   }
@@ -47,8 +48,7 @@ async function switchBranch() {
       console.error("Error IN SWITCH BRANCH FILE: " + e);
       return;
     }
-  }
-  else {
+  } else {
     console.log("Please try again.");
     process.exit(1);
   }
