@@ -128,8 +128,7 @@ describe('gitPushConfig', () => {
         const { gitPushConfig } = await import('../components/gitPush');
 
         await expect(gitPushConfig()).rejects.toEqual(error);
-
-        expect(consoleErrorSpy).toHaveBeenCalledWith("Error: " + error);
+        expect(consoleErrorSpy).toHaveBeenCalledWith("Error: IN GIT PUSH FILE: " + error);
     });
 
     it('should call input exactly once', async () => {
