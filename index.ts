@@ -4,26 +4,23 @@ import { gitInit } from "./components/gitInit.js";
 import { gitPushConfig } from "./components/gitPush.js";
 import { gitBranch } from "./components/gitBranch.js";
 
-let pushing:boolean;
+let pushing:boolean = await gitPushConfig();
 let message:string;
 
 console.log('\n--- Starte Git Workflow ---');
 
 await gitInit();
 
-pushing = await gitPushConfig();
 console.log("Write your changes or q to to exit. ")
 console.log("Write b to switch to the brach mode. ")
 while (true) {
+  try {
   message = await input("Enter your commit message or q to to exit: ");
   if (message.trim() === "") {
     console.log("Commit message cannot be empty. Please try again.");
     continue;
   }
-  if (message.includes('"') || message.includes("'")) {
-    console.log("Commit message cannot contain quotes. Please try again.");
-    continue;
-  }
+  message = message.replace(/"/g, '\\"');
   if (message.toLowerCase() === "q") {
     break;
   }
@@ -34,9 +31,13 @@ while (true) {
     run(`git add .`);
     run(`git commit -m "${message}"`);
     if (pushing) {
-      run("git pull");
+      run("git pull --rebase");
       run('git push');
     }
+  }
+  }
+  catch (e) {
+    console.error("Error IN MAIN FILE: " + e);
   }
 }
 console.log("\n--- Git Workflow beendet ---");

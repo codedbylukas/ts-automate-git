@@ -32,7 +32,7 @@ async function is_avalible(branchName: string): Promise<boolean> {
   }
   }
   catch (e) {
-    console.error("Error: " + e);
+    console.error("Error IN BRANCH FILE: " + e);
     return false;
   }
 }
@@ -44,7 +44,7 @@ async function switchBranch() {
       run("git branch");
       process.exit();
     } catch (e) {
-      console.error("Error: " + e);
+      console.error("Error IN SWITCH BRANCH FILE: " + e);
       return;
     }
   }
@@ -87,7 +87,7 @@ export async function gitBranch(pushing: boolean) {
       createBranch(pushing);
     }
   } catch (e) {
-    console.error("Error: " + e);
+    console.error("Error IN GIT BRANCH FILE: " + e);
     return Promise.reject(e);
   }
 }
