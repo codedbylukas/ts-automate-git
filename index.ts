@@ -16,6 +16,14 @@ console.log("Write your changes or q to to exit. ")
 console.log("Write b to switch to the brach mode. ")
 while (true) {
   message = await input("Enter your commit message or q to to exit: ");
+  if (message.trim() === "") {
+    console.log("Commit message cannot be empty. Please try again.");
+    continue;
+  }
+  if (message.includes('"') || message.includes("'")) {
+    console.log("Commit message cannot contain quotes. Please try again.");
+    continue;
+  }
   if (message.toLowerCase() === "q") {
     break;
   }
