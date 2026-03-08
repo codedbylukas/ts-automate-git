@@ -6,28 +6,55 @@ let choice: string;
 
 function showBegining() {
   console.log("\n--- Git Branch ---");
-  console.log("Do you want to switch or create a new branch? (default: create)");
+  console.log(
+    "Do you want to switch or create a new branch? (default: create)",
+  );
   console.log("1. Switch to a branch");
   console.log("2. Create a new branch");
 }
-async function switchBranch() {
-  branchName = await input("Enter your branch name: ");
+async function is_avalible(branchName: string): Promise<boolean> {
+  try {
   if (branchName.trim() === "") {
     console.log("Branch name cannot be empty");
-    return;
+    return false;
+  } else if (branchName.trim() === "main" || branchName.trim() === "master") {
+    console.log("You cannot switch to main or master branch");
+    return false;
+  } else if (
+    branchName.trim().includes("&&") ||
+    branchName.trim().includes("|") ||
+    branchName.trim().includes(";")
+  ) {
+    console.log("Invalid branch name. Please avoid using special characters.");
+    return false;
+  } else {
+    return true;
   }
-  try {
-    run("git switch " + branchName);
-    run("git branch");
-    process.exit();
-  } catch (e) {
+  }
+  catch (e) {
     console.error("Error: " + e);
-    return;
+    return false;
+  }
+}
+async function switchBranch() {
+  branchName = await input("Enter your branch name: ");
+  if (await is_avalible(branchName)) {
+    try {
+      run("git switch " + branchName);
+      run("git branch");
+      process.exit();
+    } catch (e) {
+      console.error("Error: " + e);
+      return;
+    }
+  }
+  else {
+    console.log("Please try again.");
+    process.exit(1);
   }
 }
 
 async function createBranch(pushing: boolean) {
-
   branchName = await input("Enter your branch name: ");
   if (branchName.trim() === "") {
     console.log("Branch name cannot be empty");
@@ -37,9 +64,8 @@ async function createBranch(pushing: boolean) {
     run("git switch -c " + branchName);
     if (pushing) {
       try {
-      run("git push -u origin " + branchName);
-      }
-      catch (e) {
+        run("git push -u origin " + branchName);
+      } catch (e) {
         console.error("Error pushing branch: " + e);
         return;
       }
@@ -60,8 +86,7 @@ export async function gitBranch(pushing: boolean) {
     } else if (choice.trim() === "2") {
       createBranch(pushing);
     }
-  }
-  catch (e) {
+  } catch (e) {
     console.error("Error: " + e);
     return Promise.reject(e);
   }
