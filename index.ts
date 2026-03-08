@@ -16,7 +16,6 @@ while (true) {
       console.log("Commit message cannot be empty. Please try again.");
       continue;
     }
-    message = message.replace(/"/g, '\\"');
     if (message.toLowerCase() === "q") {
       break;
     }
