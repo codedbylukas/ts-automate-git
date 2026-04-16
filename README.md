@@ -2,6 +2,10 @@
 
 Welcome to the **TypeScript Git Automator**! This project helps you to automate your Git workflow and make it super easy. No more typing boring commands – let the script do the work! 
 
+## See if the tests are passing: 
+
+![Tests](https://github.com/codedbylukas/ts-automate-git/actions/workflows/node.js.yml/badge.svg)
+
 ## Features
 
 *   **Automatic Initialization**: Asks you if you want to initialize a new Git repo (`git init`). Defaults to 'n' (skip).
@@ -19,12 +23,13 @@ Welcome to the **TypeScript Git Automator**! This project helps you to automate 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then follow these steps:
 
 1.  **Clone the repository** (or download):
+
     ```bash
     git clone https://github.com/codedbylukas/ts-automate-git.git
     cd ts-automate-git
     ```
 
-2.  **Install dependencies**:
+3.  **Install dependencies**:
     ```bash
     npm run install
     ```
