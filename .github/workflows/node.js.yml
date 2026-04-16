@@ -8,13 +8,19 @@ on:
     branches: [ "main", "branch_mode", "better", "bin"]
   pull_request:
     branches: [ "main", "branch_mode", "better", "bin"]
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    # Der Runner nutzt nun die Betriebssysteme aus der Matrix
+    runs-on: ${{ matrix.os }}
+    
     strategy:
+      # Verhindert, dass alle anderen Jobs abgebrochen werden, falls einer fehlschlägt
+      fail-fast: false 
       matrix:
-        node-version: [20.x]
+        # Hier definieren wir die Betriebssysteme (Linux, Windows, macOS)
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [22, 24]
+        
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
